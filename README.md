@@ -10,3 +10,12 @@
 - [x] Add Javascript to toggle Register and Login form
 
 - [x] Frontend - Done ✅
+
+- [x] Add Register functions
+- [x] Encrypt password
+- [x] Register users
+- [x] Add Login functions
+- [x] Test login function
+- [x] Add session in index page to show user name
+- [x] Add logout button
+- [x] Github publish
