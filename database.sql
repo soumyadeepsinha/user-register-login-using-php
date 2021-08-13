@@ -1,0 +1,1 @@
+CREATE TABLE `register`.`reged_useres_zico` ( `id` INT(255) NOT NULL AUTO_INCREMENT , `full_name` VARCHAR(255) NOT NULL , `username` VARCHAR(255) NOT NULL , `eamil` VARCHAR(255) NOT NULL , `password` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`), UNIQUE (`username`), UNIQUE (`eamil`)) ENGINE = InnoDB; 
