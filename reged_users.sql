@@ -31,16 +31,18 @@ CREATE TABLE `reged_users` (
   `full_name` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `verification_code` varchar(255) NOT NULL,
+  `is_verified` int(10) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 --
 -- Dumping data for table `reged_users`
 --
 
 INSERT INTO `reged_users` (`full_name`, `username`, `email`, `password`) VALUES
-('JK Talpade', 'jk', 'jk@amazon.prime', '$2y$10$jQTaaDy7UHzmUNo9Wa8wFO9QxzomgKOawZ1iNuEjhH9O2yDVmAWnu'),
-('Rahul Bose', 'rbose', 'r.bose@gmail.uk', '$2y$10$zllUJB/gysVZ5vksGAm6vO6VJG5VCyX.HxATs7XxouyYb0LHmcLTa');
+('Rahul Bose', 'rbose', 'r.bose@gmail.uk', '$2y$10$zllUJB/gysVZ5vksGAm6vO6VJG5VCyX.HxATs7XxouyYb0LHmcLTa',  'c0b77e778x4b2b88031a8c4a6pod', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

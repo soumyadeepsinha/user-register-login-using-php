@@ -23,7 +23,7 @@ session_start();
   <header>
     <h2>iLovephp</h2>
     <nav>
-      <a href="/">Home</a>
+      <a href="/Projects/Registration">Home</a>
       <a href="#">About</a>
       <a href="#">Projects</a>
       <a href="#">Portfolio</a>
