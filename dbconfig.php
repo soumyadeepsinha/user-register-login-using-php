@@ -10,6 +10,6 @@ $con = mysqli_connect($server, $user, $password, $database);
 
 //! Check connection
 if (mysqli_connect_error()) {
-  print "<script>alert('Error! Please check database connection');</script>";
+  print "<script>alert('Error! Can't connect to database at this moment');</script>";
   exit();
 }

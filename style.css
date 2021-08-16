@@ -145,3 +145,7 @@ div.popup-container div.register input {
 div.popup-container div.register button.register-btn {
   background-color: var(--secondary-color);
 }
+
+span .loggedinuser {
+  font-style: italic;
+}

@@ -42,7 +42,7 @@ if (isset($_GET['email']) && $_GET['verificationcode']) {
   } else {
     print "
     <script>
-      alert('Please try again later');
+      alert('Server Problem, Please try again later');
       window.location.href='index.php';
     </script>";
   }

@@ -11,6 +11,7 @@
 
 - [x] Frontend - Done ✅
 
+- [x] Create a Database for user registration & login
 - [x] Add Register functions
 - [x] Encrypt password
 - [x] Register users
@@ -18,4 +19,12 @@
 - [x] Test login function
 - [x] Add session in index page to show user name
 - [x] Add logout button
-- [x] Github publish
+
+- [x] Verfication mali send to user's registered email address
+- [x] Mail verification added
+- [x] IF mail id is verified, user can't verify it again
+
+- [] Forgot password button added
+- [] Forgot password function added
+
+- [] Github publish
