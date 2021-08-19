@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2021 at 06:47 AM
+-- Generation Time: Aug 19, 2021 at 07:58 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -28,21 +28,32 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `reged_users` (
-  `full_name` varchar(100) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
+  `id` int(255) NOT NULL,
+  `full_name` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `verification_code` varchar(255) NOT NULL,
-  `is_verified` int(10) NOT NULL DEFAULT 0
+  `is_verified` int(10) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-
---
--- Dumping data for table `reged_users`
 --
 
-INSERT INTO `reged_users` (`full_name`, `username`, `email`, `password`) VALUES
-('Rahul Bose', 'rbose', 'r.bose@gmail.uk', '$2y$10$zllUJB/gysVZ5vksGAm6vO6VJG5VCyX.HxATs7XxouyYb0LHmcLTa',  'c0b77e778x4b2b88031a8c4a6pod', 1);
+--
+-- Indexes for table `reged_users`
+--
+ALTER TABLE `reged_users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
+--
+-- AUTO_INCREMENT for table `reged_users`
+--
+ALTER TABLE `reged_users`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

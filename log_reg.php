@@ -22,7 +22,7 @@ function sendMail($email, $verificationcode)
     $mail->isSMTP();                                            //? Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //? Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //? Enable SMTP authentication
-    $mail->Username   = 'example@mail.com';                     //? SMTP username
+    $mail->Username   = 'youremail@mail.com';                     //? SMTP username
     $mail->Password   = 'password';                               //? SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //? Enable implicit TLS encryption
     $mail->Port       = 465;                                    //? TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
@@ -45,7 +45,7 @@ function sendMail($email, $verificationcode)
   }
 }
 
-//! for login
+//! LOGIN ---
 if (isset($_POST['login'])) {
   $query = "SELECT * FROM `reged_users` WHERE `email`='$_POST[email_username]' OR `username`='$_POST[email_username]'";
   $result = mysqli_query($con, $query);
@@ -85,7 +85,7 @@ if (isset($_POST['login'])) {
 }
 
 
-//! for registration
+//! REGISTRATION ---
 if (isset($_POST['register'])) {
   $user_exist_query = "SELECT * FROM `reged_users` WHERE `username`='$_POST[username]' OR `email`='$_POST[email]'";
   $result = mysqli_query($con, $user_exist_query);
@@ -102,7 +102,7 @@ if (isset($_POST['register'])) {
             window.location.href='index.php';
           </script>";
       } else {
-        //!error for email already registered
+        //! error for email already registered
         print "
           <script>
             alert('$result_fetch[email] - E-mail already registered');
@@ -110,20 +110,24 @@ if (isset($_POST['register'])) {
           </script>";
       }
     } else
-    //!it will be executed if no one has taken username or email before
+    //! it will be executed if no one has taken username or email before
     {
       $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
       $verificationcode = bin2hex(random_bytes(14));
-      $query = "INSERT INTO `reged_users`(`full_name`, `username`, `email`, `password`, `verification_code`, `is_verified`) VALUES ('$_POST[fullname]','$_POST[username]','$_POST[email]','$password', '$verificationcode', '0')";
+
+      //! id & created_at fields will be auto generated
+      $query = "INSERT INTO `reged_users`(`full_name`, `username`, `email`, `password`, `verification_code`, `is_verified`)
+      VALUES ('$_POST[fullname]','$_POST[username]','$_POST[email]','$password', '$verificationcode', '0')";
+
       if (mysqli_query($con, $query) && sendMail($_POST['email'], $verificationcode)) {
-        //!if data inserted successfully
+        //! if data inserted successfully
         print "
           <script>
             alert('Registration Successful');
             window.location.href='index.php';
           </script>";
       } else {
-        //!if data cannot be inserted
+        //! if data cannot be inserted
         print "
           <script>
             alert('Error! Please try again later');
