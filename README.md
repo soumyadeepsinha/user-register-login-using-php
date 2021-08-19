@@ -24,7 +24,12 @@
 - [x] Mail verification added
 - [x] IF mail id is verified, user can't verify it again
 
-- [] Forgot password button added
-- [] Forgot password function added
+- [x] Forgot password button added
+- [x] Forgot password function added
+- [x] Generate a token for reset password
+- [x] Set a expiry date for reset token
+- [x] Send a reset password mail to user on request
+- [x] Create a new form for reset password
 
+- [x] Complete the project
 - [] Github publish
