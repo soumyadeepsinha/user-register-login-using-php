@@ -1,6 +1,6 @@
 <?php
 
-require('dbconfig.php');
+require_once('dbconfig.php');
 session_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -22,13 +22,13 @@ function sendMail($email, $verificationcode)
     $mail->isSMTP();                                            //? Send using SMTP
     $mail->Host       = 'smtp.mail.com';                     //? Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //? Enable SMTP authentication
-    $mail->Username   = 'yourmail@mail.com';                     //? SMTP username
-    $mail->Password   = 'emailpassword';                               //? SMTP password
+    $mail->Username   = 'youremail@mail.com';                     //? SMTP username
+    $mail->Password   = 'yourmailpassword';                               //? SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //? Enable implicit TLS encryption
     $mail->Port       = 465;                                    //? TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //? Recipients
-    $mail->setFrom('yourmail@mail.com', 'PHP Programmar');
+    $mail->setFrom('youremail@mail.com', 'PHP Programmar');
     $mail->addAddress($email);     // add email recipient
 
     //Content
@@ -113,7 +113,7 @@ if (isset($_POST['register'])) {
     //! it will be executed if no one has taken username or email before
     {
       $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-      $verificationcode = bin2hex(random_bytes(14));
+      $verificationcode = bin2hex(random_bytes(16));
 
       //! id & created_at fields will be auto generated
       $query = "INSERT INTO `reged_users`(`full_name`, `username`, `email`, `password`, `verification_code`, `is_verified`)

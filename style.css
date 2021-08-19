@@ -8,7 +8,7 @@
 
 :root {
   --primary-color: #273e47;
-  /* --secondary-color: #3a86ff; */
+  --reset-color: #3a86ff;
   --secondary-color: #deb841;
   --background-color: #75cfb8;
 }
@@ -43,7 +43,7 @@ header {
 header nav a {
   color: white;
   margin-right: 25px;
-  font-weight: 800;
+  font-weight: 500;
 }
 
 header div.sign-in-up button {
@@ -64,7 +64,7 @@ header div.sign-in-up button:last-child {
 
 button:hover {
   cursor: pointer; /*! applicable to all button classes */
-  scale: 1.1;
+  scale: 1.03;
 }
 
 div.popup-container {
@@ -101,7 +101,7 @@ div.popup-container div.popup h2 button {
   background-color: transparent;
   color: #797775;
   font-size: 18px;
-  font-weight: 900px;
+  font-weight: 450px;
   border: none;
   outline: none;
 }
@@ -116,18 +116,31 @@ div.popup-container div.popup input {
   border-radius: 0;
   outline: none;
   font-size: 15px;
-  font-weight: 550;
+  font-weight: 450;
 }
 
 div.popup-container div.popup button.login-btn,
-div.popup-container div.register button.register-btn {
-  font-weight: 700;
+div.popup-container div.register button.register-btn,
+div.popup-container div.forgot button.reset-btn {
+  font-weight: 500;
   color: white;
   background-color: var(--primary-color);
   border: none;
   outline: none;
   padding: 4px 10px;
   margin-top: 5px;
+}
+
+div.popup-container div.popup div.forgot-btn {
+  text-align: right;
+}
+
+div.popup-container div.popup div.forgot-btn button {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-weight: 450;
+  cursor: pointer;
 }
 
 div.popup-container div.register {
@@ -144,6 +157,20 @@ div.popup-container div.register input {
 
 div.popup-container div.register button.register-btn {
   background-color: var(--secondary-color);
+}
+
+div.popup-container div.forgot h2 {
+  color: var(--reset-color);
+}
+
+div.popup-container div.forgot input {
+  color: var(--reset-color);
+}
+
+div.popup-container div.forgot button.reset-btn {
+  color: var(--reset-color);
+  background: #e2e2ea;
+  font-weight: 450;
 }
 
 span .loggedinuser {

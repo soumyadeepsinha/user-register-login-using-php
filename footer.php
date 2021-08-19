@@ -7,6 +7,11 @@
       get_popup.style.display = 'flex';
     }
   }
+
+  function forgotpopup() {
+    document.getElementById('login-popup').style.display = "none";
+    document.getElementById('forgot-popup').style.display = "flex";
+  }
 </script>
 </body>
 
