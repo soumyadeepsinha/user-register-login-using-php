@@ -1,6 +1,6 @@
 <?php
 
-require_once('dbconfig.php');
+require('dbconfig.php');
 session_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -20,10 +20,10 @@ function sendMail($email, $verificationcode)
   try {
     //? Server settings                     
     $mail->isSMTP();                                            //? Send using SMTP
-    $mail->Host       = 'smtp.mail.com';                     //? Set the SMTP server to send through
+    $mail->Host       = 'smtp.gmail.com';                     //? Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //? Enable SMTP authentication
     $mail->Username   = 'youremail@mail.com';                     //? SMTP username
-    $mail->Password   = 'yourmailpassword';                               //? SMTP password
+    $mail->Password   = 'password';                               //? SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //? Enable implicit TLS encryption
     $mail->Port       = 465;                                    //? TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
@@ -36,7 +36,7 @@ function sendMail($email, $verificationcode)
     $mail->Subject = "Email Verification from PHP Programmar";
     $mail->Body    = "Thanks for Registration with us!
     Please click the link below to verify your email - 
-      <a href='http://localhost/Projects/user-register-login-using-php/verify.php?email=$email&verificationcode=$verificationcode'>Verify</a>";
+      <a href='http://localhost/Projects/Registration/verify.php?email=$email&verificationcode=$verificationcode'>Verify</a>";
 
     $mail->send();
     return true;
@@ -113,7 +113,7 @@ if (isset($_POST['register'])) {
     //! it will be executed if no one has taken username or email before
     {
       $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-      $verificationcode = bin2hex(random_bytes(16));
+      $verificationcode = bin2hex(random_bytes(14));
 
       //! id & created_at fields will be auto generated
       $query = "INSERT INTO `reged_users`(`full_name`, `username`, `email`, `password`, `verification_code`, `is_verified`)
@@ -124,7 +124,6 @@ if (isset($_POST['register'])) {
         print "
           <script>
             alert('Registration Successful');
-            alert('Please check your inbox & verify your email address');
             window.location.href='index.php';
           </script>";
       } else {

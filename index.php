@@ -11,8 +11,8 @@
       <input type="password" placeholder="Password" name="password">
       <button type="submit" class="login-btn" name="login">LOGIN</button>
     </form>
-    <div class="forgot-btn">
-      <button type="button" onclick="forgotpopup()">Forget Password ?</button>
+    <div class="forget-btn">
+      <button type="button" onclick="forgotpopup()">Forgot Password?</button>
     </div>
   </div>
 </div>
@@ -21,7 +21,7 @@
   <div class="register popup">
     <form method="POST" action="log_reg.php">
       <h2>
-        <span>USER REGISTRATION</span>
+        <span>USER REGISTER</span>
         <button type="reset" onclick="popup('register-popup')">X</button>
       </h2>
       <input type="text" placeholder="Full Name" name="fullname">
@@ -33,15 +33,15 @@
   </div>
 </div>
 
-<div class="popup-container" id="forgot-popup">
-  <div class="forgot popup">
-    <form method="POST" action="forgotpass.php">
+<div class="popup-container" id="reset-popup">
+  <div class="reset popup">
+    <form method="POST" action="resetpass.php">
       <h2>
         <span>RESET PASSWORD</span>
-        <button type="reset" onclick="popup('forgot-popup')">X</button>
+        <button type="reset" onclick="popup('reset-popup')">X</button>
       </h2>
       <input type="email" placeholder="E-mail" name="email">
-      <button type="submit" class="reset-btn" name="reset-link">SEND LINK</button>
+      <button type="submit" class="reset-btn" name="reset-btn">RESET PASSWORD</button>
     </form>
   </div>
 </div>

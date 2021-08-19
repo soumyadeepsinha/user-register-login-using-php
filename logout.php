@@ -7,7 +7,7 @@ session_destroy();
 
 print "
 <script>
-  alert ('You\'ve Logged out successfully');
+  alert ('You\'ve Logged out');
   // window.location.href='index.php';
 </script>
 ";

@@ -9,8 +9,8 @@
   }
 
   function forgotpopup() {
-    document.getElementById('login-popup').style.display = "none";
-    document.getElementById('forgot-popup').style.display = "flex";
+    document.getElementById('login-popup').style.display = 'none';
+    document.getElementById('reset-popup').style.display = 'flex';
   }
 </script>
 </body>
