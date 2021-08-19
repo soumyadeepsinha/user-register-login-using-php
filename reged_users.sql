@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 19, 2021 at 07:58 AM
+-- Generation Time: Aug 19, 2021 at 12:27 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -33,11 +33,15 @@ CREATE TABLE `reged_users` (
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `reset_token` varchar(255) DEFAULT NULL,
+  `token_expiry` date DEFAULT NULL,
   `verification_code` varchar(255) NOT NULL,
   `is_verified` int(10) NOT NULL DEFAULT 0,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Indexes for dumped tables
 --
 
 --
@@ -49,11 +53,14 @@ ALTER TABLE `reged_users`
   ADD UNIQUE KEY `username` (`username`);
 
 --
+-- AUTO_INCREMENT for dumped tables
+--
+
 --
 -- AUTO_INCREMENT for table `reged_users`
 --
 ALTER TABLE `reged_users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
