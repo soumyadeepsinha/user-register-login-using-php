@@ -12,7 +12,9 @@ session_start();
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- gogole font -->
+  <!-- Reomve Favicon -->
+  <link rel="icon" href="images/favicon.ico" type="image/ico">
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <!-- custom style sheet -->
   <link rel="stylesheet" href="style.css">
@@ -23,7 +25,7 @@ session_start();
 <header>
   <h2>iLovephp</h2>
   <nav>
-    <a href="/Projects/Registration">Home</a>
+    <a href="/Projects/user-register-login-using-php/">Home</a>
     <a href="https://twitter.com/soumyadeep_27" target="_blank">About</a>
     <a href="https://github.com/soumyadeepsinha" target="_blank">Projects</a>
     <a href="https://soumyadeep-portfolio.netlify.app/" target="_blank">Portfolio</a>

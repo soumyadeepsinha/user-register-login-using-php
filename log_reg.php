@@ -22,13 +22,13 @@ function sendMail($email, $verificationcode)
     $mail->isSMTP();                                            //? Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //? Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //? Enable SMTP authentication
-    $mail->Username   = 'youremail@mail.com';                     //? SMTP username
+    $mail->Username   = 'yourmail@email.com';                     //? SMTP username
     $mail->Password   = 'password';                               //? SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //? Enable implicit TLS encryption
     $mail->Port       = 465;                                    //? TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //? Recipients
-    $mail->setFrom('youremail@mail.com', 'PHP Programmar');
+    $mail->setFrom('yourmail@email.com', 'PHP Programmar');
     $mail->addAddress($email);     // add email recipient
 
     //Content
@@ -36,7 +36,7 @@ function sendMail($email, $verificationcode)
     $mail->Subject = "Email Verification from PHP Programmar";
     $mail->Body    = "Thanks for Registration with us!
     Please click the link below to verify your email - 
-      <a href='http://localhost/Projects/Registration/verify.php?email=$email&verificationcode=$verificationcode'>Verify</a>";
+      <a href='http://localhost/Projects/user-register-login-using-php/verify.php?email=$email&verificationcode=$verificationcode'>Verify</a>";
 
     $mail->send();
     return true;

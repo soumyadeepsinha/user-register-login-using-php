@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Reomve Favicon -->
+  <link rel="icon" href="images/favicon.ico" type="image/ico">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <title>Update Password</title>
   <style>
     * {
@@ -59,6 +63,10 @@
       outline: none;
       padding: 4px 10px;
     }
+
+    form button:hover {
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -76,7 +84,7 @@
     if ($result) {
       if (mysqli_num_rows($result) == 1) {
         print "
-        <form action=''>
+        <form method='POST'>
           <h3>Create New Password</h3>
           <input type='password' name='Password' placeholder='Please Enter your new password' />
           <button type='submit' name='updatepassword'>Reset Password</button>
@@ -103,3 +111,30 @@
 </body>
 
 </html>
+
+<?php
+
+if (isset($_POST['updatepassword'])) {
+  $newpassword = password_hash($_POST['Password'], PASSWORD_BCRYPT);
+  $update = "UPDATE `reged_users` SET `password` = '$newpassword', `reset_token` = NULL , `token_expiry` = NULL WHERE `email` = '$_POST[email]';";
+  // $result = ;
+
+  if (mysqli_query($con, $update)) {
+    //* password has been reset by user
+    print "
+    <script>
+      alert ('Password has been Reset successfully');
+      alert ('You can login with your new password');
+      window.location.href = 'index.php';
+    </script>";
+  } else {
+    //* coding error
+    print "
+    <script>
+      alert ('Server down! Please try again in some time');
+      window.location.href = 'index.php';
+    </script>";
+  }
+}
+
+?>

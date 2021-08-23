@@ -27,34 +27,23 @@ SET time_zone = "+00:00";
 -- Table structure for table `reged_users`
 --
 
-CREATE TABLE `reged_users` (
-  `id` int(255) NOT NULL,
-  `full_name` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `verification_code` varchar(255) NOT NULL,
-  `is_verified` int(10) NOT NULL DEFAULT 0,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
+CREATE TABLE `register`.`reged_users`(
+    `id` INT(255) NOT NULL AUTO_INCREMENT,
+    `full_name` VARCHAR(255) NOT NULL,
+    `username` VARCHAR(255) NOT NULL,
+    `email` VARCHAR(255) NOT NULL,
+    `password` VARCHAR(255) NOT NULL,
+    `reset_token` VARCHAR(255) NULL,
+    `token_expiry` VARCHAR(255) NULL,
+    `verification_code` VARCHAR(255) NOT NULL,
+    `is_verified` INT(10) NOT NULL DEFAULT '0',
+    `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(`id`),
+    UNIQUE(`username`),
+    UNIQUE(`email`)
+) ENGINE = INNODB;
 --
 
---
--- Indexes for table `reged_users`
---
-ALTER TABLE `reged_users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `username` (`username`);
-
---
---
--- AUTO_INCREMENT for table `reged_users`
---
-ALTER TABLE `reged_users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
