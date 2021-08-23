@@ -22,7 +22,7 @@
 
 - [x] Verfication mali send to user's registered email address
 - [x] Mail verification added
-- [x] IF mail id is verified, user can't verify it again
+- [x] If mail id is verified, user can't verify it again
 
 - [x] Forgot password button added
 - [x] Forgot password function added
