@@ -30,6 +30,9 @@
 - [x] Set a expiry date for reset token
 - [x] Send a reset password mail to user on request
 - [x] Create a new form for reset password
+- [x] Update the new password to database
+- [x] On update new password Set token NULL for reset password
+- [x] On update new password Set expiry date NULL for reset token
 
 - [x] Complete the project
-- [] Github publish
+- [x] Final Github publish
